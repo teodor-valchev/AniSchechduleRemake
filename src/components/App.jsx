@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./Footer/Footer";
 import Home from "./Home/Home";
 import Navigation from "./Navigation/Nav";
 
@@ -20,6 +21,7 @@ const App = () => {
                         <Home />
                     </div>
                 </main>
+                <Footer />
             </div>
         </>
     );
