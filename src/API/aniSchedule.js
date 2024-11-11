@@ -11,7 +11,6 @@ export const getAll = async () => {
     //go to accessRequests: https://cors-anywhere.herokuapp.com/
 
     const parsedData = await data.json();
-    console.log(parsedData);
 
-    return data;
+    return parsedData;
 };
