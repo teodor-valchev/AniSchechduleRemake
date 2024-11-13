@@ -1,6 +1,10 @@
-
-
-const AnimeItem = ({ title, imageVersionRoute, dubPremier, episodes, genres }) => {
+const AnimeItem = ({
+    title,
+    imageVersionRoute,
+    dubPremier,
+    episodes,
+    genres,
+}) => {
     const utcDate = new Date(dubPremier);
 
     // Convert to your local time (Bulgaria timezone)
@@ -12,47 +16,34 @@ const AnimeItem = ({ title, imageVersionRoute, dubPremier, episodes, genres }) =
     });
 
     return (
-        <div className="group relative">
-            <div className="text-2xl font-bold tracking-tight text-gray-900 text-center">
-                {title}
-            </div>
-            <div>
-                <div className="info flex items-center justify-evenly">
-                    <span>Dub premiere: {localDate}</span>
-                    <span>Episodes: {episodes ? episodes : "UNKNOWN"}</span>
-                </div>
-                <div className="genres flex justify-between bg-antiquewhite">
-                    {genres.map((g) => (
-                        <span className="genre">
-                            <span>{g.name}</span>
-                        </span>
-                    ))}
-                </div>
-            </div>
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+        <div className="relative bg-gradient-to-r from-purple-600 to-blue-500 p-1 rounded-3xl hover:scale-105 transform transition duration-300 shadow-lg">
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-lg rounded-3xl overflow-hidden">
+                {/* Anime Image */}
                 <img
+                    src={'https://img.animeschedule.net/production/assets/public/img/' + imageVersionRoute}
                     alt={title}
-                    src={
-                        `https://img.animeschedule.net/production/assets/public/img/` +
-                        imageVersionRoute
-                    }
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    className="w-full h-48 object-cover rounded-t-3xl"
                 />
-            </div>
-            <div className="mt-4 flex justify-between">
-                <div>
-                    <h3 className="text-sm text-gray-700">
-                        <a href={""}>
-                            <span
-                                aria-hidden="true"
-                                className="absolute inset-0"
-                            />
-                            {""}
-                        </a>
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">{""}</p>
+
+                {/* Anime Details */}
+                <div className="p-5">
+                    <h3 className="text-2xl font-bold text-white">{title}</h3>
+                    <p className="text-sm text-gray-300 mt-2">
+                        📅 Dub Premiere: {localDate}
+                    </p>
+                    <p className="text-sm text-gray-300 mt-2">
+                        🎭 Genre: {genres.map((genre) => genre.name + ' ')}
+                    </p>
+                    <p className="text-sm text-gray-300 mt-2">
+                        📺 Episodes: {episodes ? episodes : 'Unknown'}
+                    </p>
+                    <p className="text-sm text-gray-300 mt-2">
+                        📺 Episodes: {episodes ? episodes : 'Unknown'}
+                    </p>
+                    <button className="mt-6 w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-lg shadow-md transition duration-300">
+                        Watch Now
+                    </button>
                 </div>
-                <p className="text-sm font-medium text-gray-900">{""}</p>
             </div>
         </div>
     );
