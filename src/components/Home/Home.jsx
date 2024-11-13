@@ -6,7 +6,6 @@ import AnimeItem from "./AnimeItem.jsx";
 const Home = () => {
     const [animes, setAnime] = useState([]);
     console.log(animes);
-    
 
     useEffect(() => {
         apiService.getAll().then((res) => setAnime(res.anime));
