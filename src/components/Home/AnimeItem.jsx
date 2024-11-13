@@ -37,9 +37,6 @@ const AnimeItem = ({
                     <p className="text-sm text-gray-300 mt-2">
                         📺 Episodes: {episodes ? episodes : 'Unknown'}
                     </p>
-                    <p className="text-sm text-gray-300 mt-2">
-                        📺 Episodes: {episodes ? episodes : 'Unknown'}
-                    </p>
                     <button className="mt-6 w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-lg shadow-md transition duration-300">
                         Watch Now
                     </button>
