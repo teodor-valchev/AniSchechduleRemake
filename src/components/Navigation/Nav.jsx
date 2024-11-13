@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const navigation = [
-    { name: "AnimeSchedule.net", to: "#", current: false },
+    { name: "AnimeSchedule.net", to: "/", current: false },
     { name: "Anime", to: "/", current: true },
     { name: "Seasons", to: "#", current: false },
     { name: "Upcoming", to: "#", current: false },

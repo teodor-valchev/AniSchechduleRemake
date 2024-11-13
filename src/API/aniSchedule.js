@@ -14,3 +14,11 @@ export const getAll = async () => {
 
     return parsedData;
 };
+
+export const getOneAnime = async (animeId) => {
+    const data = await fetch(`${API_KEYS.ANIME_SCHEDULE_URL}/${animeId}`);
+
+    const parsedData = await data.json();
+
+    return parsedData;
+};
