@@ -4,17 +4,18 @@ import {
     DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-    { name: "AnimeSchedule.net", href: "#", current: false },
-    { name: "Anime", href: "#", current: true },
-    { name: "Seasons", href: "#", current: false },
-    { name: "Upcoming", href: "#", current: false },
+    { name: "AnimeSchedule.net", to: "#", current: false },
+    { name: "Anime", to: "/", current: true },
+    { name: "Seasons", to: "#", current: false },
+    { name: "Upcoming", to: "#", current: false },
 ];
 const userNavigation = [
-    { name: "Your Profile", href: "#" },
-    { name: "Settings", href: "#" },
-    { name: "Sign out", href: "#" },
+    { name: "Your Profile", to: "#" },
+    { name: "Settings", to: "#" },
+    { name: "Sign out", to: "#" },
 ];
 
 function classNames(...classes) {
@@ -45,9 +46,9 @@ const Navigation = () => {
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 {navigation.map((item) => (
-                                    <a
+                                    <Link
                                         key={item.name}
-                                        href={item.href}
+                                        to={item.to}
                                         aria-current={
                                             item.current ? "page" : undefined
                                         }
@@ -59,7 +60,7 @@ const Navigation = () => {
                                         )}
                                     >
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -93,7 +94,7 @@ const Navigation = () => {
                         <DisclosureButton
                             key={item.name}
                             as="a"
-                            href={item.href}
+                            to={item.to}
                             aria-current={item.current ? "page" : undefined}
                             className={classNames(
                                 item.current
@@ -112,7 +113,7 @@ const Navigation = () => {
                             <DisclosureButton
                                 key={item.name}
                                 as="a"
-                                href={item.href}
+                                to={item.to}
                                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                             >
                                 {item.name}

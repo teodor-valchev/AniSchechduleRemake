@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
+
 const AnimeItem = ({
     title,
     imageVersionRoute,
     dubPremier,
     episodes,
     genres,
+    route
 }) => {
     const utcDate = new Date(dubPremier);
 
@@ -20,7 +23,10 @@ const AnimeItem = ({
             <div className="bg-gray-900 bg-opacity-80 backdrop-blur-lg rounded-3xl overflow-hidden">
                 {/* Anime Image */}
                 <img
-                    src={'https://img.animeschedule.net/production/assets/public/img/' + imageVersionRoute}
+                    src={
+                        "https://img.animeschedule.net/production/assets/public/img/" +
+                        imageVersionRoute
+                    }
                     alt={title}
                     className="w-full h-48 object-cover rounded-t-3xl"
                 />
@@ -32,14 +38,17 @@ const AnimeItem = ({
                         📅 Dub Premiere: {localDate}
                     </p>
                     <p className="text-sm text-gray-300 mt-2">
-                        🎭 Genre: {genres.map((genre) => genre.name + ' ')}
+                        🎭 Genre: {genres.map((genre) => genre.name + " ")}
                     </p>
                     <p className="text-sm text-gray-300 mt-2">
-                        📺 Episodes: {episodes ? episodes : 'Unknown'}
+                        📺 Episodes: {episodes ? episodes : "Unknown"}
                     </p>
-                    <button className="mt-6 w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-lg shadow-md transition duration-300">
+                    <Link
+                        to={`details/${route}`}
+                        className="inline-block px-4 py-2 mt-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-full shadow-md transition duration-300 text-sm"
+                    >
                         Watch Now
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
