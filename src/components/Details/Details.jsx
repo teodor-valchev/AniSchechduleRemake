@@ -7,15 +7,11 @@ const Details = () => {
     const [anime, setAnime] = useState({});
     const { animeId } = useParams("animeId");
 
-    useEffect(async () => {
+    useEffect(() => {
         apiService.getOneAnime(animeId).then((res) => setAnime(res));
     }, [animeId]);
 
     const scoreOutOf10 = (anime.stats?.averageScore / 10).toFixed(1);
-
-    console.log(anime);
-
-    console.log(anime.genres);
 
     const utcDate = new Date(anime.subPremier);
 
@@ -52,10 +48,7 @@ const Details = () => {
                     <p className="text-lg">{anime.description}</p>
 
                     {/* Watch Now Button */}
-                    <button
-                        onClick={""}
-                        className="mt-6 inline-block px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-full shadow-md transition duration-300 text-sm"
-                    >
+                    <button className="mt-6 inline-block px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-full shadow-md transition duration-300 text-sm">
                         Watch Now
                     </button>
                 </div>

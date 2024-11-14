@@ -6,7 +6,7 @@ const AnimeItem = ({
     dubPremier,
     episodes,
     genres,
-    route
+    route,
 }) => {
     const utcDate = new Date(dubPremier);
 

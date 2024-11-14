@@ -21,14 +21,6 @@ const userNavigation = [
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
-/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */
 
 const Navigation = () => {
     return (
