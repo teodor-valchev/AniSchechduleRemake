@@ -1,15 +1,24 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import * as animeService from "../../API/aniSchedule";
 
 const Upcoming = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const [seasonaAnime, setSeasonalAnime] = useState({});
+
+    useEffect(() => {
+        animeService.getSeasonalAnime().then((res) => setSeasonalAnime(res));
+    }, []);
+
+    console.log(seasonaAnime);
 
     return (
         <div className="bg-gray-900 text-white min-h-screen">
             {/* Hero Section */}
             <div className="relative bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-800 text-center p-8">
                 <h1 className="text-5xl font-extrabold">Seasonal Anime</h1>
-                <p className="mt-4 text-lg">Explore the best anime of the season</p>
+                <p className="mt-4 text-lg">
+                    Explore the best anime of the season
+                </p>
             </div>
 
             {/* Filter Section */}
@@ -43,20 +52,20 @@ const Upcoming = () => {
                 ) : (
                     animeList.map((anime) => (
                         <div
-                            key={'s'}
+                            key={"s"}
                             className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
                         >
                             <img
-                                src={'ttle'}
-                                alt={'title'}
+                                src={"ttle"}
+                                alt={"title"}
                                 className="w-full h-56 object-cover"
                             />
                             <div className="p-4 space-y-2">
-                                <h3 className="text-xl font-bold">{';s'}</h3>
+                                <h3 className="text-xl font-bold">{";s"}</h3>
                                 <p className="text-gray-400 text-sm">
                                     {/* {anime.type} | {anime.episodes} Episodes */}
                                 </p>
-                                <p className="text-sm text-purple-400">{'2'}</p>
+                                <p className="text-sm text-purple-400">{"2"}</p>
                             </div>
                         </div>
                     ))
