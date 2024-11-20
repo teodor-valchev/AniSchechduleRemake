@@ -3,13 +3,15 @@ import * as animeService from "../../API/aniSchedule";
 
 const Upcoming = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [seasonaAnime, setSeasonalAnime] = useState({});
+    const [seasonalAnimes, setSeasonalAnimes] = useState([]);
 
     useEffect(() => {
-        animeService.getSeasonalAnime().then((res) => setSeasonalAnime(res));
+        animeService.getSeasonalAnime()
+            .then((res) => setSeasonalAnimes(res))
+            .finally(setIsLoading(false));
     }, []);
 
-    console.log(seasonaAnime);
+    console.log(seasonalAnimes);
 
     return (
         <div className="bg-gray-900 text-white min-h-screen">
@@ -50,13 +52,16 @@ const Upcoming = () => {
                         <p className="mt-4">Loading Anime...</p>
                     </div>
                 ) : (
-                    animeList.map((anime) => (
+                    seasonalAnimes.map((anime) => (
                         <div
                             key={"s"}
                             className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
                         >
                             <img
-                                src={"ttle"}
+                                src={
+                                    "https://img.animeschedule.net/production/assets/public/img/" +
+                                    anime.imageVersionRoute
+                                }
                                 alt={"title"}
                                 className="w-full h-56 object-cover"
                             />
