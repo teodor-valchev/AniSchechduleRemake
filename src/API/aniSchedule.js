@@ -1,9 +1,11 @@
-import * as API_KEYS from "../API_KEYS.js";
+const ANIME_SCHEDULE_URL = import.meta.env.VITE_ANIME_SCHEDULE_URL;
+const API_KEY = import.meta.env.VITE_ANIME_SCHEDULE_TOKEN;
 
 export const getAll = async () => {
-    const data = await fetch(`${API_KEYS.ANIME_SCHEDULE_URL}/anime`, {
+    console.log(import.meta.env.VITE_API_URL);
+    const data = await fetch(`${ANIME_SCHEDULE_URL}/anime`, {
         headers: {
-            'Authorization': `Bearer ${API_KEYS.Anime_Schedule_Token}`,
+            Authorization: `Bearer ${API_KEY}`,
             "Content-type": "application/json",
         },
     });
@@ -16,15 +18,12 @@ export const getAll = async () => {
 };
 
 export const getOneAnime = async (animeId) => {
-    const data = await fetch(
-        `${API_KEYS.ANIME_SCHEDULE_URL}/anime/${animeId}`,
-        {
-            headers: {
-                'Authorization': `Bearer ${API_KEYS.Anime_Schedule_Token}`,
-                "Content-type": "application/json",
-            },
-        }
-    );
+    const data = await fetch(`${ANIME_SCHEDULE_URL}/anime/${animeId}`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            "Content-type": "application/json",
+        },
+    });
 
     const parsedData = await data.json();
 
@@ -32,15 +31,12 @@ export const getOneAnime = async (animeId) => {
 };
 
 export const getSeasonalAnime = async () => {
-    const data = await fetch(
-        `${API_KEYS.ANIME_SCHEDULE_URL}/timetables/dub?year=2024`,
-        {
-            headers: {
-                'Authorization': `Bearer ${API_KEYS.Anime_Schedule_Token}`,
-                "Content-type": "application/json",
-            },
-        }
-    );
+    const data = await fetch(`${ANIME_SCHEDULE_URL}/timetables/dub?year=2024`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            "Content-type": "application/json",
+        },
+    });
 
     const parsedData = await data.json();
 
