@@ -5,6 +5,7 @@ import Footer from "./Footer/Footer";
 import Home from "./Home/Home";
 import Navigation from "./Navigation/Nav";
 import Details from "./Details/Details";
+import Upcoming from "./Upcoming/Upcoming";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/details/:animeId" element={<Details />} />
+                        <Route path="/upcoming" element={<Upcoming />} />
                     </Routes>
                 </main>
                 <Footer />

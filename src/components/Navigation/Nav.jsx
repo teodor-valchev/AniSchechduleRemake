@@ -10,7 +10,7 @@ const navigation = [
     { name: "AnimeSchedule.net", to: "/", current: false },
     { name: "Anime", to: "/", current: true },
     { name: "Seasons", to: "#", current: false },
-    { name: "Upcoming", to: "#", current: false },
+    { name: "Upcoming", to: "/upcoming", current: false },
 ];
 const userNavigation = [
     { name: "Your Profile", to: "#" },
