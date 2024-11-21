@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as animeService from "../../API/aniSchedule";
+import StreamItem from "./StreamItem";
 
 const Upcoming = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +55,7 @@ const Upcoming = () => {
                 ) : (
                     seasonalAnimes.map((anime) => (
                         <div
-                            key={"s"}
+                            key={anime.title}
                             className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
                         >
                             <img
@@ -62,15 +63,20 @@ const Upcoming = () => {
                                     "https://img.animeschedule.net/production/assets/public/img/" +
                                     anime.imageVersionRoute
                                 }
-                                alt={"title"}
+                                alt={anime.title}
                                 className="w-full h-56 object-cover"
                             />
                             <div className="p-4 space-y-2">
-                                <h3 className="text-xl font-bold">{";s"}</h3>
+                                <h3 className="text-xl font-bold">
+                                    {anime.title}
+                                </h3>
                                 <p className="text-gray-400 text-sm">
-                                    {/* {anime.type} | {anime.episodes} Episodes */}
+                                    {anime.episodes} Episodes
                                 </p>
-                                <p className="text-sm text-purple-400">{"2"}</p>
+                                
+                                {/* {anime.streams.map((stream) => (
+                                    <StreamItem streams={stream} />
+                                ))} */}
                             </div>
                         </div>
                     ))

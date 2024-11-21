@@ -7,6 +7,7 @@ export const getAll = async () => {
         headers: {
             Authorization: `Bearer ${API_KEY}`,
             "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
         },
     });
 
@@ -22,6 +23,7 @@ export const getOneAnime = async (animeId) => {
         headers: {
             Authorization: `Bearer ${API_KEY}`,
             "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
         },
     });
 
@@ -35,6 +37,7 @@ export const getSeasonalAnime = async () => {
         headers: {
             Authorization: `Bearer ${API_KEY}`,
             "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
         },
     });
 
