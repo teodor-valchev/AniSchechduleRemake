@@ -19,7 +19,6 @@ function classNames(...classes) {
 
 const Navigation = () => {
     const [navigation, setNavigation] = useState([
-        { name: "AnimeSchedule.net", to: "/", current: false },
         { name: "Anime", to: "/", current: true },
         { name: "Upcoming", to: "/upcoming", current: false },
     ]);
@@ -41,9 +40,9 @@ const Navigation = () => {
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <img
-                                alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                                className="h-8 w-8"
+                                alt="AniSchedule"
+                                src="/logo.png"
+                                className="h-8"
                             />
                         </div>
                         <div className="hidden md:block">
