@@ -4,14 +4,9 @@ import {
     DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const navigation = [
-    { name: "AnimeSchedule.net", to: "/", current: false },
-    { name: "Anime", to: "/", current: true },
-    { name: "Seasons", to: "#", current: false },
-    { name: "Upcoming", to: "/upcoming", current: false },
-];
 const userNavigation = [
     { name: "Your Profile", to: "#" },
     { name: "Settings", to: "#" },
@@ -23,6 +18,22 @@ function classNames(...classes) {
 }
 
 const Navigation = () => {
+    const [navigation, setNavigation] = useState([
+        { name: "AnimeSchedule.net", to: "/", current: false },
+        { name: "Anime", to: "/", current: true },
+        { name: "Upcoming", to: "/upcoming", current: false },
+    ]);
+
+    const handleClick = (navLink) => {
+        setNavigation((prevItems) =>
+            prevItems.map((item) =>
+                item.name == navLink.name
+                    ? { ...item, current: true }
+                    : { ...item, current: false }
+            )
+        );
+    };
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -41,6 +52,7 @@ const Navigation = () => {
                                     <Link
                                         key={item.name}
                                         to={item.to}
+                                        onClick={() => handleClick(item)}
                                         aria-current={
                                             item.current ? "page" : undefined
                                         }

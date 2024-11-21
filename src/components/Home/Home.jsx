@@ -8,8 +8,6 @@ const Home = () => {
     const [animes, setAnime] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    console.log(isLoading);
-
     useEffect(() => {
         apiService
             .getAll()

@@ -2,7 +2,6 @@ const ANIME_SCHEDULE_URL = import.meta.env.VITE_ANIME_SCHEDULE_URL;
 const API_KEY = import.meta.env.VITE_ANIME_SCHEDULE_TOKEN;
 
 export const getAll = async () => {
-    console.log(import.meta.env.VITE_API_URL);
     const data = await fetch(`${ANIME_SCHEDULE_URL}/anime`, {
         headers: {
             Authorization: `Bearer ${API_KEY}`,

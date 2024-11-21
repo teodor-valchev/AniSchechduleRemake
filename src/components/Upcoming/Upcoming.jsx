@@ -7,12 +7,11 @@ const Upcoming = () => {
     const [seasonalAnimes, setSeasonalAnimes] = useState([]);
 
     useEffect(() => {
-        animeService.getSeasonalAnime()
+        animeService
+            .getSeasonalAnime()
             .then((res) => setSeasonalAnimes(res))
             .finally(setIsLoading(false));
     }, []);
-
-    console.log(seasonalAnimes);
 
     return (
         <div className="bg-gray-900 text-white min-h-screen">
@@ -73,7 +72,7 @@ const Upcoming = () => {
                                 <p className="text-gray-400 text-sm">
                                     {anime.episodes} Episodes
                                 </p>
-                                
+
                                 {/* {anime.streams.map((stream) => (
                                     <StreamItem streams={stream} />
                                 ))} */}
