@@ -44,3 +44,31 @@ export const getSeasonalAnime = async () => {
 
     return parsedData;
 };
+
+export const MyProfileAvatar = async () => {
+    const data = await fetch(`${ANIME_SCHEDULE_URL}/users/eULTSCghrZ/avatar`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+    });
+
+    const parsedData = await data.json();
+
+    return parsedData;
+};
+
+export const MyProfileStats = async () => {
+    const data = await fetch(`${ANIME_SCHEDULE_URL}/users/u7jYwcf2OO/stats`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            "Content-type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+    });
+
+    const parsedData = await data.json();
+
+    return parsedData;
+};

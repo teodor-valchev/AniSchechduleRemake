@@ -21,6 +21,7 @@ const Navigation = () => {
     const [navigation, setNavigation] = useState([
         { name: "Anime", to: "/", current: true },
         { name: "Upcoming", to: "/upcoming", current: false },
+        { name: "Profile", to: "/profile", current: false }
     ]);
 
     const handleClick = (navLink) => {

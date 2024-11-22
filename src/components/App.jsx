@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import Navigation from "./Navigation/Nav";
 import Details from "./Details/Details";
 import Upcoming from "./Upcoming/Upcoming";
+import Profile from "./Profile/Profile";
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/details/:animeId" element={<Details />} />
                         <Route path="/upcoming" element={<Upcoming />} />
+                        <Route path="/profile" element={<Profile />} />
                     </Routes>
                 </main>
                 <Footer />

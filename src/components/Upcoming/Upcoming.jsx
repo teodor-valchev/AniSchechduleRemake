@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import * as animeService from "../../API/aniSchedule";
-import StreamItem from "./StreamItem";
 
 const Upcoming = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -72,10 +71,20 @@ const Upcoming = () => {
                                 <p className="text-gray-400 text-sm">
                                     {anime.episodes} Episodes
                                 </p>
-
-                                {/* {anime.streams.map((stream) => (
-                                    <StreamItem streams={stream} />
-                                ))} */}
+                                {anime.streams.hulu ? (
+                                    <p
+                                        key={anime.title}
+                                        className="text-sm text-purple-400"
+                                    >
+                                        <a href={anime.streams.hulu}>
+                                            <img
+                                                style={{ width: "2rem" }}
+                                                src="https://img.animeschedule.net/production/assets/public/img/logos/hulu-svg-29c902e2b0.svg"
+                                                alt="hulu"
+                                            />
+                                        </a>
+                                    </p>
+                                ) : null}
                             </div>
                         </div>
                     ))
