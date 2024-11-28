@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 src/API_KEYS.js
-.env.development
+.env
